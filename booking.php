@@ -20,6 +20,14 @@ $page_title = "Book Now";
         <div class="container">
             <div class="booking-form-container">
                 <h2>Travel Request Form</h2>
+
+                <?php foreach (['success_message' => 'success', 'error_message' => 'error'] as $messageKey => $messageType): ?>
+                    <?php if (isset($_SESSION[$messageKey])): ?>
+                        <div class="alert <?php echo $messageType; ?>" role="status">
+                            <?php echo htmlspecialchars($_SESSION[$messageKey], ENT_QUOTES, 'UTF-8'); unset($_SESSION[$messageKey]); ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
                 
                 <form method="post" action="process_booking.php" class="advanced-form">
                     <div class="form-row">

@@ -71,7 +71,7 @@ $page_title = "Home";
             </div>
             
             <div class="destination-card">
-                <img src="Assets/Jos_Wildlife_Park.jpg" alt="Jos Wildlife Park">
+                <img src="Assets/jos_wildlife_park.jpg" alt="Jos Wildlife Park">
                 <div class="destination-overlay">
                     <h3>Jos Wildlife Park</h3>
                     <p>Wildlife conservation</p>
@@ -80,7 +80,7 @@ $page_title = "Home";
             </div>
 
             <div class="destination-card">
-                <img src="Assets/hawan_Kibo.jpg" alt="hawan_kido">
+                <img src="Assets/hawan_kibo.jpg" alt="Hawan Kibo">
                 <div class="destination-overlay">
                     <h3>Hawan Kido</h3>
                     <p>Nature Heritage Preservation</p>

@@ -21,15 +21,17 @@ $page_title = "Our Services";
             <div class="services-grid">
                 <?php foreach($services as $service): ?>
                 <div class="service-card">
-                    <div class="service-icon"><?php echo $service['icon']; ?></div>
-                    <h3><?php echo $service['title']; ?></h3>
-                    <p><?php echo $service['description']; ?></p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Customized Packages</li>
-                        <li><i class="fas fa-check"></i> Expert Guidance</li>
-                        <li><i class="fas fa-check"></i> 24/7 Support</li>
-                    </ul>
-                    <a href="contact.php" class="btn-service">Learn More</a>
+                    <img class="service-card__image" src="<?php echo htmlspecialchars($service['image']); ?>" alt="<?php echo htmlspecialchars($service['alt']); ?>" loading="lazy">
+                    <div class="service-card__content">
+                        <h3><?php echo htmlspecialchars($service['title']); ?></h3>
+                        <p><?php echo htmlspecialchars($service['description']); ?></p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Customized Packages</li>
+                            <li><i class="fas fa-check"></i> Expert Guidance</li>
+                            <li><i class="fas fa-check"></i> 24/7 Support</li>
+                        </ul>
+                        <a href="contact.php" class="btn-service">Learn More</a>
+                    </div>
                 </div>
                 <?php endforeach; ?>
             </div>

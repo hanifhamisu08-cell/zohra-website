@@ -2,6 +2,38 @@
 include 'db.php';
 include_once 'config.php';
 $page_title = "Contact Us";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = trim($_POST['fullname'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $subject = trim($_POST['subject'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+    $travelDate = trim($_POST['travel_date'] ?? '');
+    $travelers = trim($_POST['travelers'] ?? '');
+
+    if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || $subject === '' || $message === '') {
+        $_SESSION['error_message'] = 'Please provide your name, a valid email, a subject, and a message.';
+    } else {
+        try {
+            $stmt = $conn->prepare('INSERT INTO contacts (name, email, subject, message, travel_date, travelers) VALUES (?, ?, ?, ?, ?, ?)');
+            $stmt->execute([
+                $name,
+                $email,
+                $subject,
+                $message,
+                $travelDate !== '' ? $travelDate : null,
+                $travelers !== '' ? $travelers : null,
+            ]);
+            $_SESSION['success_message'] = 'Thank you for your message! We will contact you soon.';
+        } catch (PDOException $exception) {
+            error_log('Contact form submission failed: ' . $exception->getMessage());
+            $_SESSION['error_message'] = 'We could not send your message right now. Please try again shortly.';
+        }
+    }
+
+    header('Location: contact.php');
+    exit;
+}
 ?>
 
 <?php include 'header.php'; ?>
@@ -25,13 +57,13 @@ $page_title = "Contact Us";
                     
                     <?php if(isset($_SESSION['success_message'])): ?>
                         <div class="alert success">
-                            <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
+                            <?php echo htmlspecialchars($_SESSION['success_message'], ENT_QUOTES, 'UTF-8'); unset($_SESSION['success_message']); ?>
                         </div>
                     <?php endif; ?>
                     
                     <?php if(isset($_SESSION['error_message'])): ?>
                         <div class="alert error">
-                            <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
+                            <?php echo htmlspecialchars($_SESSION['error_message'], ENT_QUOTES, 'UTF-8'); unset($_SESSION['error_message']); ?>
                         </div>
                     <?php endif; ?>
                     

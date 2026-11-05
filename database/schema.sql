@@ -67,10 +67,6 @@ CREATE TABLE `contacts` (
 -- Dumping data for table `contacts`
 --
 
-INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `travel_date`, `travelers`, `status`, `created_at`) VALUES
-(1, 'Hamisu Mustapha', 'hanifhamisu08@gmail.com', 'travel', 'need special needs on this vacation', NULL, NULL, 'new', '2026-01-28 14:01:38'),
-(2, 'Hamisu Mustapha', 'hanifhamisu08@gmail.com', 'travel', 'need special needs on this vacation', NULL, NULL, 'new', '2026-01-28 14:32:40'),
-(3, 'Hamisu Mustapha', 'hanifhamisu08@gmail.com', 'travel', 'need special needs on this vacation', NULL, NULL, 'new', '2026-01-28 14:33:49');
 
 -- --------------------------------------------------------
 
@@ -91,13 +87,6 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `title`, `description`, `icon`, `featured`, `created_at`) VALUES
-(1, 'Tour Planning & Management', 'Customized tour packages for individuals and groups', '✈️', 1, '2026-01-21 15:18:48'),
-(2, 'Hospitality Consulting', 'Expert advice for hotel and resort management', '🏨', 1, '2026-01-21 15:18:48'),
-(3, 'Travel Support Services', '24/7 customer support during your travels', '📱', 1, '2026-01-21 15:18:48'),
-(4, 'Corporate Travel', 'Business travel solutions for companies', '💼', 1, '2026-01-21 15:18:48'),
-(5, 'Luxury Getaways', 'Premium vacation experiences worldwide', '⭐', 1, '2026-01-21 15:18:48'),
-(6, 'Adventure Tourism', 'Thrilling experiences for adventure seekers', '⛰️', 1, '2026-01-21 15:18:48');
 
 -- --------------------------------------------------------
 
@@ -156,13 +145,13 @@ ALTER TABLE `bookings`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subscribers`

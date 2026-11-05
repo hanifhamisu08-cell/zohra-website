@@ -1,0 +1,18 @@
+# Local credentials and runtime data
+.env
+.env.*
+!.env.example
+/db-data/
+/storage/
+/logs/
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependency/build artifacts
+/vendor/
+/node_modules/
+/dist/

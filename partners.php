@@ -21,10 +21,12 @@ $page_title = "Our Partners";
             <div class="partners-grid">
                 <?php foreach($partners as $partner): ?>
                 <div class="partner-card">
-                    <div class="partner-logo"><?php echo $partner['logo']; ?></div>
-                    <h3><?php echo $partner['name']; ?></h3>
-                    <span class="partner-category"><?php echo $partner['category']; ?></span>
-                    <p>Trusted partner providing quality services to our clients</p>
+                    <img class="partner-card__image" src="<?php echo htmlspecialchars($partner['image']); ?>" alt="<?php echo htmlspecialchars($partner['alt']); ?>" loading="lazy">
+                    <div class="partner-card__content">
+                        <h3><?php echo htmlspecialchars($partner['name']); ?></h3>
+                        <span class="partner-category"><?php echo htmlspecialchars($partner['category']); ?></span>
+                        <p>Trusted partner providing quality services to our clients</p>
+                    </div>
                 </div>
                 <?php endforeach; ?>
             </div>
